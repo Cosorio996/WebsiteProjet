@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="card p-3 mb-4">
+  <form method="post" action="{{ url_for('guardar_valor_amenaza_desde_lista') }}">
+    <div class="mb-3">
+      <label for="name" class="form-label"><strong>Seleccione una amenaza</strong></label>
+
+      <select name="name" id="name" class="form-select" required onchange="cargarPrioridadAmenaza()">
+        <option value="">-- Seleccione --</option>
+
+        {% for a in amenazas %}
+          <option
+            value="{{ a.name }}"
+            data-valor="{{ a.prioridad if a.prioridad is not none else '' }}"
+          >
+            {{ a.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3" style="max-width: 220px;">
+      <label for="prioridad" class="form-label"><strong>Valor</strong></label>
+
+      <input
+        type="number"
+        name="prioridad"
+        id="prioridad"
+        class="form-control"
+        min="1"
+        max="5"
+        required
+      >
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+<hr>
+
+<h4>Amenazas registradas</h4>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Amenaza</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in amenazas %}
+      <tr>
+        <td>{{ a.name }}</td>
+        <td>{{ a.prioridad }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+function cargarPrioridadAmenaza() {
+    const select = document.getElementById("name");
+    const opcion = select.options[select.selectedIndex];
+    const valor = opcion.getAttribute("data-valor");
+    document.getElementById("prioridad").value = valor || "";
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    .kpi-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+      background: #fff;
+      transition: transform 0.2s ease;
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px);
+    }
+    .kpi-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .kpi-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+</style>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <div>
+        <h2 class="fw-bold text-dark mb-1"></h2>
+        <p class="text-muted small">Aquí se visualizan los indicadores principales de riesgo operacional (OT/IoT).</p>
+    </div>
+</div>
+
+<div class="row g-3 mt-1">
+    <div class="col-md-3">
+      <div class="card kpi-card p-3">
+        <div class="kpi-title"><i class="fa-solid fa-radiation text-danger me-2"></i>Total Risk Score</div>
+        <div class="kpi-value">{{ risk_score_total }}</div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card kpi-card p-3">
+        <div class="kpi-title"><i class="fa-solid fa-calculator text-warning me-2"></i>Average Risk Score</div>
+        <div class="kpi-value">{{ risk_score_promedio }}</div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card kpi-card p-3">
+        <div class="kpi-title"><i class="fa-solid fa-skull-crossbones text-danger me-2"></i>Maximum Risk Score</div>
+        <div class="kpi-value">{{ risk_score_maximo }}</div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card kpi-card p-3">
+        <div class="kpi-title"><i class="fa-solid fa-shield-virus text-primary me-2"></i>Total CPE</div>
+        <div class="kpi-value">{{ total_riesgos }}</div>
+      </div>
+    </div>
+</div>
+{% endblock %}

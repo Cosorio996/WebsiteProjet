@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>Direccion</th>
+            <th>CPEs</th>
+            <th>Vulnerabilidades</th>
+            <th>Amenaza</th>
+            <th>R.I.</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in riesgos %}
+        <tr>
+            <td>{{ r.direccion }}</td>
+            <td>{{ r.nodo }}</td>
+            <!--<td>{{ r.email }}</td>-->
+            <td>{{ r.cve }}</td>
+            <td>{{ r.name }}</td>
+            <td>{{ r.riesgo_valor }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

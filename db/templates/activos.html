@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- 1. Enlaces reales y correctos de CDNs para que funcione el JavaScript y los iconos -->
+<!-- Forzar escala compacta al 100% de zoom sin tocar el layout principal -->
+<div style="transform: scale(0.9); transform-origin: top left; width: 111%; overflow-x: hidden;">
+
+<link href="https://datatables.net" rel="stylesheet">
+<link href="https://cloudflare.com" rel="stylesheet">
+
+<style>
+    .summary-card { 
+    background: white; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 6px; 
+    padding: 10px 15px; /* Reducimos el padding vertical de 15px a 10px */
+    height: auto; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+}
+    .summary-title { 
+    font-size: 0.75rem; /* Título superior de la tarjeta más compacto */
+    font-weight: 700; 
+    color: #64748b; 
+    text-transform: uppercase; 
+    border-bottom: 2px solid #f1f5f9; 
+    padding-bottom: 3px; 
+    margin-bottom: 6px; 
+}
+    .summary-item { 
+    font-size: 0.85rem; /* Contenido interno más estilizado */
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 2px; 
+    color: #334155; 
+}
+    thead input { width: 100%; padding: 4px 8px; font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .table-container { background: white; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .upload-zone { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; }
+    .config-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .config-card .form-label { font-size: 0.85rem; font-weight: 600; color: #475569; text-transform: uppercase; }
+    .config-card .form-control, .config-card .form-select { border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px; }
+</style>
+
+<!-- 2. PANELES RESUMEN INFORMATIVOS -->
+<div class="row g-3 mb-4">
+    <div class="col-md-4"><div class="summary-card"><div class="summary-title"><i class="fa-solid fa-microchip text-primary me-2"></i>Resumen</div><div class="summary-item"><span>Total Activos</span> <strong class="text-dark">{{ activos|length }}</strong></div><div class="summary-item"><span>Redes</span> <strong>OT / IoT Local</strong></div></div></div>
+    <div class="col-md-4"><div class="summary-card"><div class="summary-title"><i class="fa-solid fa-industry text-primary me-2"></i>Fabricantes</div><div class="summary-item"><span>Siemens</span> <span class="badge bg-light text-dark">Detectados</span></div><div class="summary-item"><span>Protocolos</span> <span class="badge bg-light text-dark">CPE Standard</span></div></div></div>
+    <div class="col-md-4"><div class="summary-card"><div class="summary-title"><i class="fa-solid fa-shield-halved text-primary me-2"></i>Estado</div><div class="summary-item"><span>Análisis</span> <strong>Activo</strong></div><div class="summary-item"><span>Base de Datos</span> <span class="text-success"><i class="fa-solid fa-circle me-1" style="font-size:0.7rem;"></i>NIST OK</span></div></div></div>
+</div>
+
+<!-- 3. ZONA DE CARGA DE ARCHIVOS -->
+<div class="card p-4 mb-4 upload-zone text-center">
+  <form method="post" action="{{ url_for('cargar_csv') }}" enctype="multipart/form-data">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <div class="mb-2 text-success" style="font-size: 2.2rem;"><i class="fa-solid fa-file-csv"></i></div>
+      <h5 class="mb-1">Actualizar Inventario Offline</h5>
+      <p class="text-muted small mb-3">Suba el archivo CSV exportado desde Nozomi Networks.</p>
+      <div class="input-group w-50" style="min-width: 350px;">
+        <input type="file" name="csv_file" class="form-control" accept=".csv" required>
+        <button type="submit" class="btn btn-success px-4"><i class="fa-solid fa-upload"></i> Procesar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- 4. FORMULARIO DE ASIGNACIÓN MEJORADO -->
+<div class="config-card mb-4">
+  <div class="summary-title mb-3"><i class="fa-solid fa-sliders text-primary me-2"></i>Asignación de Parámetros</div>
+  <form method="post" action="{{ url_for('guardar_prioridad_activo_desde_lista') }}">
+    <div class="row g-3 align-items-end">
+      <div class="col-md-5">
+        <label class="form-label">Seleccione un activo</label>
+        <select name="activo_id" id="activo_id" class="form-select" required onchange="cargarCampos()">
+          <option value="">-- Seleccione --</option>
+          {% for a in activos %}
+            <option value="{{ a.id }}" data-p="{{ a.prioridad if a.prioridad is not none else '' }}" data-a="{{ a.valor_alcanzable if a.valor_alcanzable is not none else '' }}">
+              {{ a.nodo }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">Valor Crítico</label>
+        <input type="number" name="prioridad" id="prioridad" class="form-control" min="1" max="10" required>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">Valor Exposición</label>
+        <input type="number" name="valor_alcanzable" id="valor_alcanzable" class="form-control" min="1" max="10" required>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success px-4 py-2 w-auto"><i class="fa-solid fa-floppy-disk me-1"></i> Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- 5. TABLA DE REGISTROS CON FILTROS TIPO NOZOMI -->
+<div class="table-container mb-5">
+    <h4 class="mb-3">Activos registrados</h4>
+    <table id="tablaNozomiStyle" class="table table-striped table-hover align-middle w-100">
+      <thead class="table-dark">
+        <tr><th>ID</th><th>CPE Mapeado</th><th>Firmware</th><th>Valor Crítico</th><th>Valor Exposición</th></tr>
+        <tr class="bg-light search-row">
+          <th><input type="text" placeholder="ID..." /></th>
+          <th><input type="text" placeholder="Filtrar..." /></th><th><input type="text" placeholder="Firmware..." /></th><th><input type="text" placeholder="Crítico..." /></th><th><input type="text" placeholder="Exposición..." /></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in activos %}
+          <tr>
+            <td class="font-monospace text-muted">{{ a.id }}</td>
+            <td class="font-monospace text-secondary" style="font-size: 0.85rem;">{{ a.nodo }}</td>
+            <td class="font-monospace text-secondary">{{ a.firmware_version if a.firmware_version else '-' }}</td>
+            <td><span class="badge bg-secondary">{{ a.prioridad if a.prioridad else 'Sin asignar' }}</span></td>
+            <td><span class="badge bg-info">{{ a.valor_alcanzable if a.valor_alcanzable is not none else 'Sin asignar' }}</span></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+<!-- 6. LIBRERÍAS DE SOPORTE INTEGRADAS CORRECTAMENTE -->
+<script src="https://jquery.com"></script>
+<script src="https://datatables.net"></script>
+<script src="https://datatables.net"></script>
+
+<script>
+  $(document).ready(function() {
+      var table = $('#tablaNozomiStyle').DataTable({ orderCellsTop: true, dom: 'rtip', pageLength: 10 });
+      $('#tablaNozomiStyle thead tr.search-row th input').on('keyup change', function() {
+          table.column($(this).parent().index()).search(this.value).draw();
+      });
+  });
+
+  function cargarCampos() {
+    const select = document.getElementById("activo_id");
+    const inputPrioridad = document.getElementById("prioridad");
+    const inputAlcanzable = document.getElementById("valor_alcanzable");
+    const opcionSeleccionada = select.options[select.selectedIndex];
+
+    if (!opcionSeleccionada || !opcionSeleccionada.value) {
+      inputPrioridad.value = "";
+      inputAlcanzable.value = "";
+      return;
+    }
+
+    let p = opcionSeleccionada.getAttribute("data-p");
+    let a = opcionSeleccionada.getAttribute("data-a");
+
+    if (!p || p === "None" || p === "none") p = "";
+    if (!a || a === "None" || a === "none") a = "";
+
+    // Forzar inserción directa en las casillas nativas
+    inputPrioridad.value = p;
+    inputAlcanzable.value = a;
+  }
+</script>
+</div>
+{% endblock %}

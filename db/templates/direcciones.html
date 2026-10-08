@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="card p-3 mb-4">
+  <form method="post" action="{{ url_for('guardar_valor_direccion_desde_lista') }}">
+    <div class="mb-3">
+      <label for="direccion" class="form-label"><strong>Seleccione una dirección</strong></label>
+
+      <select name="direccion" id="direccion" class="form-select" required onchange="cargarValorDireccion()">
+        <option value="">-- Seleccione --</option>
+
+        {% for d in direcciones %}
+          <option
+            value="{{ d.direccion }}"
+            data-valor="{{ d.prioridad if d.prioridad is not none else '' }}"
+          >
+            {{ d.direccion }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+<hr>
+
+<h4>Direcciones registradas</h4>
+
+<table class="table table-striped align-middle">
+  <thead>
+    <tr>
+      <th>Dirección</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in direcciones %}
+      <tr>
+        <td>{{ d.direccion }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+  function cargarValorDireccion() {
+    const select = document.getElementById("direccion");
+    const inputValor = document.getElementById("prioridad");
+    const opcionSeleccionada = select.options[select.selectedIndex];
+
+    if (!opcionSeleccionada || !opcionSeleccionada.value) {
+      inputValor.value = "";
+      return;
+    }
+
+    const valorActual = opcionSeleccionada.getAttribute("data-valor");
+    inputValor.value = valorActual ? valorActual : "";
+  }
+</script>
+
+{% endblock %}
+
+
