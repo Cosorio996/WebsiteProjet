@@ -1,0 +1,39 @@
+matching_cpes
+"cpe:/o:siemens:s7-400_firmware:8.2.1:-:-, cpe:/h:siemens:s7-400:-:-:-"
+"cpe:/h:siemens:s7-410:-:-:-, cpe:/o:siemens:s7-410_firmware:8.2.1:-:-"
+cpe:/h:siemens:6es74105ha080ab0:-:-:-
+"cpe:/h:siemens:s7-410:-:-:-, cpe:/o:siemens:s7-410_firmware:8.2.1:-:-"
+cpe:/h:siemens:6es74105ha080ab0:-:-:-
+"cpe:/h:siemens:scalance_xc200:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/o:siemens:s7-410_firmware:8.2.1:-:-, cpe:/h:siemens:s7-410:-:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:s7-410:-:-:-, cpe:/o:siemens:s7-410_firmware:8.2.1:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+cpe:/h:siemens:6es74105ha080ab0:-:-:-
+
+
+'192.168.12.2', 'cpe:/h:siemens:6es74105ha080ab0:-:-:-'
+'192.168.12.2', 'cpe:/h:siemens:s7-400:-:-:-'
+'192.168.12.2', 'cpe:/h:siemens:s7-410:-:-:-'
+'192.168.12.2', 'cpe:/h:siemens:scalance_xc200:-:-:-'
+'192.168.12.2', 'cpe:/h:siemens:scalance_xc208:-:-:-'
+'192.168.12.2', 'cpe:/o:siemens:s7-400_firmware:8.2.1:-:-'
+'192.168.12.2', 'cpe:/o:siemens:s7-410_firmware:8.2.1:-:-'
+'192.168.12.2', 'cpe:/o:siemens:scalance_firmware:04.02.00:-:-'
+'192.168.12.24', 'Nozomi Networks'
+'30:2f:1e:21:4d:3c', 'cpe:/h:siemens:6gk56462gs002ac2:*:*'
+'d4:45:27:94:53:93', 'cpe:/h:siemens:s7-410:-:-:-'
+'d4:45:27:94:53:93', 'cpe:/h:siemens:scalance_xc208:-:-:-'
+'d4:45:27:94:53:93', 'cpe:/o:siemens:s7-410_firmware:8.2.1:-:-'
+'d4:45:27:94:53:93', 'cpe:/o:siemens:scalance_firmware:04.02.00:-:-'
+'d4:f5:27:94:53:93', 'Servidor Siemens de DA'
+'d4:f5:27:b5:cd:67', 'Servidor S de telecontrol básico'

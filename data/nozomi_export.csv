@@ -1,0 +1,9 @@
+node_id,cve,cve_score,cve_epss,cwe_id,cwe_name,cve_creation_time,time,matching_cpes,likelihood,resolved,cve_source
+d4:f5:27:94:53:93,CVE-2023-51440,7.5,0.00046,940,Improper Verification of Source of a Communication Channel,2024-02-13 00:00:00,2024-10-18 20:05:21,cpe:/h:siemens:6gk52080ba002ac2:*:*,0.9,FALSE,NOZOMI_CURATED
+d4:f5:27:b5:cd:67,CVE-2023-51440,7.5,0.00046,940,Improper Verification of Source of a Communication Channel,2024-02-13 00:00:00,2024-10-18 20:07:58,cpe:/h:siemens:6es74105hm080ab0:*:*,0.9,FALSE,NOZOMI_CURATED
+d4:f5:27:71:d4:3e,CVE-2023-51440,7.5,0.00046,940,Improper Verification of Source of a Communication Channel,2024-02-13 00:00:00,2024-10-18 20:07:59,cpe:/h:siemens:6es74105xh080ab0:*:*,0.9,FALSE,NOZOMI_CURATED
+30:2f:1e:21:4d:3c,CVE-2023-51440,7.5,0.00046,940,Improper Verification of Source of a Communication Channel,2024-02-13 00:00:00,2024-10-18 20:08:00,cpe:/h:siemens:6gk56462gs002ac2:*:*,0.9,FALSE,NOZOMI_CURATED
+192.168.10.2,CVE-2023-51440,7.5,0.00046,940,Improper Verification of Source of a Communication Channel,2024-02-13 00:00:00,2024-10-21 12:13:01,cpe:/h:siemens:6es74105xh080ab0:*:*,0.9,FALSE,NOZOMI_CURATED
+
+
+

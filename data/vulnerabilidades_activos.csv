@@ -1,0 +1,22 @@
+cve,direccion,nodo,valor_activo_critico,valor_alcanzable
+CVE-2017-12741,192.168.12.2,"siemens:s7-400, siemens:s7-400_firmware",1.00,"1.00, 2.00"
+CVE-2017-2680,192.168.12.2,"siemens:s7-400, siemens:s7-400_firmware",1.00,"1.00, 2.00"
+CVE-2019-10936,192.168.12.2,"siemens:s7-410, siemens:s7-410_firmware",1.00,"3.00, 4.00"
+CVE-2019-13946,192.168.12.2,siemens:6es74105hx080ab0,1.00,5.00
+CVE-2019-19300,192.168.12.2,"siemens:s7-410, siemens:s7-410_firmware",1.00,"3.00, 4.00"
+CVE-2020-25242,192.168.12.2,siemens:6es74105hx080ab0,1.00,5.00
+CVE-2020-28400,d4:f5:27:94:53:93,"siemens:scalance_xc200, siemens:scalance숀firmware",1.00,"6.00, 7.00"
+CVE-2021-40368,192.168.12.2,"siemens:s7-410, siemens:s7-410_firmware",1.00,"3.00, 4.00"
+CVE-2022-0778,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2022-25622,192.168.12.2,"siemens:s7-410, siemens:s7-410_firmware",1.00,"3.00, 4.00"
+CVE-2022-31765,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2022-36323,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2022-36324,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2022-4450,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-0216,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-0217,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-0401,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-44317,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-44373,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-44374,d4:f5:27:94:53:93,"siemens:scalance_xc208, siemens:scalance숈firmware",1.00,"8.00, 9.00"
+CVE-2023-51440,192.168.12.2,siemens:6es74105hx080ab0,1.00,5.00

@@ -1,0 +1,25 @@
+node_id,cve,cve_score,cwe_id,cwe_name,matching_cpes
+192.168.12.2,CVE-2017-12741,7.5,400,Uncontrolled Resource Consumption,"cpe:/o:siemens:s7-400_firmware:8.2.1:-:-, cpe:/h:siemens:s7-400:-:-:-"
+192.168.12.2,CVE-2017-2680,7.1,400,Uncontrolled Resource Consumption,"cpe:/h:siemens:s7-410:-:-:-, cpe:/o:siemens:s7-410_firmware:8.2.1:-:-"
+192.168.12.2,CVE-2019-10936,7.5,400,Uncontrolled Resource Consumption,cpe:/h:siemens:6es74105ha080ab0:-:-:-
+192.168.12.2,CVE-2019-13946,7.5,400,Uncontrolled Resource Consumption,"cpe:/h:siemens:s7-410:-:-:-, cpe:/o:siemens:s7-410_firmware:8.2.1:-:-"
+192.168.12.2,CVE-2019-19300,7.5,400,Uncontrolled Resource Consumption,cpe:/h:siemens:6es74105ha080ab0:-:-:-
+192.168.12.2,CVE-2020-25242,7.5,400,Uncontrolled Resource Consumption,"cpe:/h:siemens:scalance_xc200:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2020-28400,7.5,770,Allocation of Resources Without Limits or Throttling,"cpe:/o:siemens:s7-410_firmware:8.2.1:-:-, cpe:/h:siemens:s7-410:-:-:-"
+192.168.12.2,CVE-2021-40368,7.5,119,Improper Restriction of Operations within the Bounds of a Memory Buffer,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2022-0778,7.5,835,Loop with Unreachable Exit Condition ('Infinite Loop'),"cpe:/h:siemens:s7-410:-:-:-, cpe:/o:siemens:s7-410_firmware:8.2.1:-:-"
+192.168.12.2,CVE-2022-25622,7.5,400,Uncontrolled Resource Consumption,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2022-31765,8.8,862,Missing Authorization,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2022-36323,7.2,74,Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection'),"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2022-36324,7.5,770,Allocation of Resources Without Limits or Throttling,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2022-4450,7.5,415,Double Free,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2023-0216,7.5,476,NULL Pointer Dereference,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2023-0217,7.5,476,NULL Pointer Dereference,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2023-0401,7.5,476,NULL Pointer Dereference,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2023-44317,7.2,349,Acceptance of Extraneous Untrusted Data With Trusted Data,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2023-44373,9.4,74,Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection'),"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+d4:45:27:94:53:93,CVE-2023-44374,8.8,567,Unsynchronized Access to Shared Data in a Multithreaded Context,"cpe:/h:siemens:scalance_xc208:-:-:-, cpe:/o:siemens:scalance_firmware:04.02.00:-:-"
+192.168.12.2,CVE-2023-51440,7.5,940,Improper Verification of Source of a Communication Channel,cpe:/h:siemens:6es74105ha080ab0:-:-:-
+192.168.12.24,CVE-2024-0218,7.5,1286,Improper Validation of Syntactic Correctness of Input,"Nozomi Networks",guardian
+193.168.12.65,CVE-2025-13254,8.3,T1,Falsificación de credenciales/omisión de autenticación,Servidor Siemens de DA
+
